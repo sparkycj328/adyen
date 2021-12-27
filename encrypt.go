@@ -31,8 +31,9 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"github.com/CrimsonAIO/aesccm"
 	"time"
+
+	"github.com/CrimsonAIO/aesccm"
 )
 
 const (
@@ -41,6 +42,8 @@ const (
 
 	// Version121 is the text representation of Adyen v1.21.
 	Version121 = "0_1_21"
+
+	Version011 = "0_1_1"
 )
 
 // GenerationTimeFunc is a function responsible for returning the correct "generationtime" key
@@ -100,7 +103,7 @@ func (c *client) Encrypt(version string, value map[string]interface{}, getGenera
 		return "", err
 	}
 
-	return fmt.Sprintf("adyenjs_%s$%s$%s",
+	return fmt.Sprintf("adyenan%s$%s$%s",
 		version,
 		base64.StdEncoding.EncodeToString(encryptedKey),
 		base64.StdEncoding.EncodeToString(nonceWithCipherText),

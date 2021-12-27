@@ -1,4 +1,4 @@
-module github.com/CrimsonAIO/adyen
+module github.com/sparkycj328/adyen
 
 go 1.16
 
